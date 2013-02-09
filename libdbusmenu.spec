@@ -13,13 +13,16 @@ BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
+BuildRequires:	gettext-devel
 BuildRequires:	glib-devel
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtk-doc
+BuildRequires:	intltool
 BuildRequires:	json-glib-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	pango-devel
+BuildRequires:	pkgconfig
 BuildRequires:	vala
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
