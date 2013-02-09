@@ -14,7 +14,6 @@ BuildRequires:	dbus-glib-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+2-devel
