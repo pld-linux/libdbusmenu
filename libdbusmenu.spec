@@ -15,15 +15,18 @@ BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glib-devel
+BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+2-devel
-BuildRequires:	gtk-doc
+BuildRequires:	gtk+3-devel
 BuildRequires:	intltool
 BuildRequires:	json-glib-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	pango-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-pythonprov
 BuildRequires:	vala
+BuildRequires:	valgrind
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
