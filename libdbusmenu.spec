@@ -1,7 +1,7 @@
 Summary:	DBus Menu Library
 Name:		libdbusmenu
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 URL:		https://launchpad.net/dbusmenu
