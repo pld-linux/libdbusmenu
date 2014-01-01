@@ -1,5 +1,5 @@
 #
-# Condional build:
+# Conditional build:
 %bcond_without	gtk2		# GTK+ 2.x version of libdbusmenu-gtk
 %bcond_without	gtk3		# GTK+ 3.x version of libdbusmenu-gtk
 %bcond_without	static_libs	# static libraries
