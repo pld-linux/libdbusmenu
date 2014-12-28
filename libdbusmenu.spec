@@ -18,7 +18,7 @@ URL:		https://launchpad.net/libdbusmenu
 BuildRequires:	atk-devel
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.26
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gobject-introspection-devel >= 0.10
