@@ -4,12 +4,13 @@
 %bcond_without	gtk3		# GTK+ 3.x version of libdbusmenu-gtk
 %bcond_without	static_libs	# static libraries
 %bcond_without	vala		# Vala API
+%bcond_with	valgrind	# Disable json tests requiring valgrind to run
 
 Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
 Version:	12.10.2
-Release:	1
+Release:	2
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/libdbusmenu/12.10/%{version}/+download/%{name}-%{version}.tar.gz
@@ -32,7 +33,7 @@ BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 %{?with_vala:BuildRequires:	vala}
-BuildRequires:	valgrind
+%{?with_valgrind:BuildRequires:	valgrind}
 BuildRequires:	xorg-lib-libX11-devel >= 1.3
 Requires:	glib2 >= 1:2.26
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
