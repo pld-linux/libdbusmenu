@@ -10,7 +10,7 @@ Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
 Version:	12.10.2
-Release:	2
+Release:	3
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/libdbusmenu/12.10/%{version}/+download/%{name}-%{version}.tar.gz
@@ -97,6 +97,9 @@ API języka Vala do biblioteki libdbusmenu-glib.
 Summary:	API documentation for libdbusmenu-glib library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libdbusmenu-glib
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for libdbusmenu-glib library.
