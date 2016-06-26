@@ -9,23 +9,22 @@
 Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
-Version:	12.10.2
-Release:	4
+Version:	16.04.0
+Release:	1
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
-Source0:	https://launchpad.net/libdbusmenu/12.10/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	e30fc986b447f62513d61225fa573a70
+Source0:	https://launchpad.net/libdbusmenu/16.04/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	3c05d53053b3ea69384b5f93d7a4c7c4
 URL:		https://launchpad.net/libdbusmenu
 BuildRequires:	atk-devel
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.26
-BuildRequires:	gnome-doc-utils >= 0.3.2
+BuildRequires:	glib2-devel >= 1:2.36
 BuildRequires:	gobject-introspection-devel >= 0.10
 %{?with_gtk2:BuildRequires:	gtk+2-devel >= 2:2.16}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0}
-BuildRequires:	gtk-doc >= 1.4
+BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	json-glib-devel >= 0.13.4
 BuildRequires:	libtool
@@ -35,7 +34,7 @@ BuildRequires:	rpm-pythonprov
 %{?with_vala:BuildRequires:	vala}
 %{?with_valgrind:BuildRequires:	valgrind}
 BuildRequires:	xorg-lib-libX11-devel >= 1.3
-Requires:	glib2 >= 1:2.26
+Requires:	glib2 >= 1:2.36
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,7 +58,7 @@ Summary:	Development files for libdbusmenu-glib library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki libdbusmenu-glib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.26
+Requires:	glib2-devel >= 1:2.36
 
 %description devel
 Header and other development files for libdbusmenu-glib library.
@@ -290,13 +289,13 @@ install -d build-gtk${gtkver}
 cd build-gtk${gtkver}
 ../%configure \
 	%{!?with_gtk2:%{!?with_gtk3:--disable-gtk}} \
+	--enable-gtk-doc \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	%{!?with_vala:--disable-vala} \
 	--enable-introspection \
 	--with-gtk=${gtkver} \
 	--with-html-dir=%{_gtkdocdir}
-# --enable-gtk-doc is broken
 %{__make}
 cd ..
 done
