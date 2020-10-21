@@ -272,7 +272,9 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 %prep
 %setup -q
 
-%{__sed} -i -e 's/-Werror/-Werror -Wno-error=deprecated-declarations/' \
+%{__sed} -i -e 's/-Werror//' \
+	libdbusmenu-glib/Makefile.am \
+	libdbusmenu-gtk/Makefile.am \
 	tools/Makefile.am \
 	tools/testapp/Makefile.am
 
