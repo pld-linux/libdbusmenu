@@ -343,9 +343,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/dbusmenu-bench
-%attr(755,root,root) %{_libdir}/dbusmenu-dumper
-%attr(755,root,root) %{_libdir}/dbusmenu-testapp
+%attr(755,root,root) %{_libexecdir}/dbusmenu-bench
+%attr(755,root,root) %{_libexecdir}/dbusmenu-dumper
+%attr(755,root,root) %{_libexecdir}/dbusmenu-testapp
 %attr(755,root,root) %{_libdir}/libdbusmenu-glib.so
 %dir %{_includedir}/libdbusmenu-glib-0.4
 %{_includedir}/libdbusmenu-glib-0.4/libdbusmenu-glib
