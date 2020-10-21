@@ -280,6 +280,8 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 	tools/Makefile.am \
 	tools/testapp/Makefile.am
 
+%{__sed} -i -e '1s,/usr/bin/env python$,%{__python},' tools/dbusmenu-bench
+
 %build
 %{__intltoolize}
 %{__libtoolize}
