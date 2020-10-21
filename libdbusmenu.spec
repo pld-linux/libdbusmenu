@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_without	apidocs		# disable gtk-doc
 %bcond_without	gtk2		# GTK+ 2.x version of libdbusmenu-gtk
 %bcond_without	gtk3		# GTK+ 3.x version of libdbusmenu-gtk
 %bcond_without	static_libs	# static libraries
@@ -31,6 +32,7 @@ BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.527
 %{?with_vala:BuildRequires:	vala}
 %{?with_valgrind:BuildRequires:	valgrind}
 BuildRequires:	xorg-lib-libX11-devel >= 1.3
@@ -291,7 +293,7 @@ install -d build-gtk${gtkver}
 cd build-gtk${gtkver}
 ../%configure \
 	%{!?with_gtk2:%{!?with_gtk3:--disable-gtk}} \
-	--enable-gtk-doc \
+	%{__enable_disable apidocs gtk-doc} \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	%{!?with_vala:--disable-vala} \
@@ -357,9 +359,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libdbusmenu-glib.a
 %endif
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/libdbusmenu-glib
+%endif
 
 %if %{with vala}
 %files -n vala-libdbusmenu
@@ -438,8 +442,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 %endif
 
+%if %{with apidocs}
 %if %{with gtk2} || %{with gtk3}
 %files gtk-apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/libdbusmenu-gtk
+%endif
 %endif
