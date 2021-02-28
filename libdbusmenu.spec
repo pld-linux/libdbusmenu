@@ -87,9 +87,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki libdbusmenu-glib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-libdbusmenu
 Vala API for libdbusmenu-glib library.
@@ -101,9 +99,7 @@ API języka Vala do biblioteki libdbusmenu-glib.
 Summary:	API documentation for libdbusmenu-glib library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libdbusmenu-glib
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for libdbusmenu-glib library.
