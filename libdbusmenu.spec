@@ -11,11 +11,12 @@ Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
 Version:	16.04.0
-Release:	1
+Release:	2
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/libdbusmenu/16.04/%{version}/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	3c05d53053b3ea69384b5f93d7a4c7c4
+Patch0:		python3.patch
 URL:		https://launchpad.net/libdbusmenu
 BuildRequires:	atk-devel
 BuildRequires:	autoconf >= 2.62
@@ -269,14 +270,13 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e 's/-Werror//' \
 	libdbusmenu-glib/Makefile.am \
 	libdbusmenu-gtk/Makefile.am \
 	tools/Makefile.am \
 	tools/testapp/Makefile.am
-
-%{__sed} -i -e '1s,/usr/bin/env python$,%{__python},' tools/dbusmenu-bench
 
 %build
 %{__intltoolize}
