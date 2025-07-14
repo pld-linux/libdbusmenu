@@ -270,7 +270,7 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i -e 's/-Werror//' \
 	libdbusmenu-glib/Makefile.am \
