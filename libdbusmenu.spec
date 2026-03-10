@@ -11,7 +11,7 @@ Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
 Version:	16.04.0
-Release:	2
+Release:	3
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/libdbusmenu/16.04/%{version}/+download/%{name}-%{version}.tar.gz
