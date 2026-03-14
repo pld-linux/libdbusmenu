@@ -11,7 +11,7 @@ Summary:	DBus Menu Library
 Summary(pl.UTF-8):	Biblioteka DBus Menu
 Name:		libdbusmenu
 Version:	16.04.0
-Release:	3
+Release:	4
 License:	GPL v3, LGPL v2.1, LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/libdbusmenu/16.04/%{version}/+download/%{name}-%{version}.tar.gz
@@ -278,6 +278,11 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 	tools/Makefile.am \
 	tools/testapp/Makefile.am
 
+# fix gtk-doc build with newer gtkdoc-mkdb not generating tree_index.sgml
+%{__sed} -i -e 's|<xi:include href="xml/tree_index.sgml"/>|<xi:include href="xml/tree_index.sgml"><xi:fallback /></xi:include>|' \
+	docs/libdbusmenu-glib/reference/libdbusmenu-glib-docs.sgml \
+	docs/libdbusmenu-gtk/reference/libdbusmenu-gtk-docs.sgml
+
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -289,7 +294,8 @@ Dokumentacja API biblioteki libdbusmenu-gtk (zarówno w wersji dla GTK+
 for gtkver in %{?with_gtk2:2} %{?with_gtk3:3} %{!?with_gtk2:%{!?with_gtk3:none}} ; do
 install -d build-gtk${gtkver}
 cd build-gtk${gtkver}
-../%configure \
+%define configuredir ..
+%configure \
 	%{!?with_gtk2:%{!?with_gtk3:--disable-gtk}} \
 	%{__enable_disable apidocs gtk-doc} \
 	--disable-silent-rules \
